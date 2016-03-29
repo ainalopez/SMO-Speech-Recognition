@@ -6,14 +6,14 @@ output: pdf_document
 ---
 
 # 1. Introduction
-Nick
+Blablabla
 
 
 # 2. Dynamic Time Warping
-Nick
+Blablabla
 
 ## 2.1 Algorithm
-Nick
+ 
 ## 2.2 Modifications
  
 ## 2.3 Applications
@@ -154,3 +154,51 @@ return(list(path=path, DTW=DTW))
 
 ## 6.2 Speech Recognizer
 
+```{r, echo = TRUE, eval = FALSE}
+# input: isound is the path to the wav file with the sound.
+
+SpeechRecognizer <- function(isound){
+
+  if (!require("tuneR")) install.packages("tuneR");library(tuneR)
+  
+  # Read the wav file
+  sound <- readWave(isound)
+  sr    <- sound@samp.rate
+  
+  # Compute the mel frequency cepstrum coefficients
+  inputWord <- t(melfcc(sound, 
+                        sr, 
+                        wintime=0.016, 
+                        lifterexp=0, 
+                        minfreq=133.33,
+                        maxfreq=6855.6, 
+                        sumpower=FALSE))
+  
+  
+  # Compute the distance of the input sound with the tenplate sounds
+  distance.sound<-rep(NA, 4)
+  
+  dtwg1 <- TimeWarp(gmail1, inputWord)
+  distance.sound[1]<- tail(dtwg1$DTW[,1],1)
+
+  dtwg2 <- TimeWarp(gmail2, inputWord)
+  distance.sound[2]<- tail(dtwg2$DTW[,1],1)
+   
+  dtwf1 <- TimeWarp(facebook1, inputWord)
+  distance.sound[3]<- tail(dtwf1$DTW[,1],1)
+  
+  dtwf2 <- TimeWarp(facebook2, inputWord)
+  distance.sound[4]<- tail(dtwf2$DTW[,1],1)
+  
+  
+  # If the minimum distance is to the word gmail, open gmail
+  if (which.min(distance.sound) == 1 | which.min(distance.sound) == 2){
+    system(paste("open http://gmail.com"))
+  } 
+  
+   # If the minimum distance is to the word facebook, open facebook
+  if (which.min(distance.sound) ==3 | which.min(distance.sound) == 4){
+     system(paste("open http://facebook.com"))
+  } 
+}
+```
