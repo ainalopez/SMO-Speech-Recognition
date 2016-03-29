@@ -6,14 +6,14 @@ output: pdf_document
 ---
 
 # 1. Introduction
-Blablabla
-
+Nick
 
 # 2. Dynamic Time Warping
-Blablabla
+Nick
 
 ## 2.1 Algorithm
- 
+Nick
+
 ## 2.2 Modifications
  
 ## 2.3 Applications
