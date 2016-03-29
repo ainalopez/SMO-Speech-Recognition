@@ -5,21 +5,21 @@ date: "29 March 2016"
 output: pdf_document
 ---
 
-# 1. INTRODUCTION
+# 1. Introduction
 Nick
 
-# 2. DYNAMIC TIME WARPING
+# 2. Dynamic Time Warping
 Nick
 
 ## 2.1 Algorithm
 Nick
 
 ## 2.2 Modifications
- 
+Major modifications are the step size conditions, step weighting and the global path constraints.
 ## 2.3 Applications
 
 
-# 3. SPEECH RECOGNIZER
+# 3. Speech Recognition
 
 AINA
 Blablabla, data, blablabla
@@ -36,14 +36,13 @@ Blablabla
 
 
 
-# 4. CONCLUSIONS
+# 4. Conclusions
 Blablabla
 
 
-# 5. REFERENCES 
+# 5. Bibliography 
 
-
-# 6. ANNEX
+# 6. Annex
 
 ## 6.1 DTW function 
 
