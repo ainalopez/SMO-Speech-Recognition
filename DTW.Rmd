@@ -5,10 +5,10 @@ date: "29 March 2016"
 output: pdf_document
 ---
 
-# 1. Introduction
+# 1. INTRODUCTION
 Nick
 
-# 2. Dynamic Time Warping
+# 2. DYNAMIC TIME WARPING
 Nick
 
 ## 2.1 Algorithm
@@ -19,7 +19,7 @@ Nick
 ## 2.3 Applications
 
 
-# 3. Speech Recognition
+# 3. SPEECH RECOGNIZER
 
 AINA
 Blablabla, data, blablabla
@@ -36,13 +36,14 @@ Blablabla
 
 
 
-# 4. Conclusions
+# 4. CONCLUSIONS
 Blablabla
 
 
-# 5. Bibliography 
+# 5. REFERENCES 
 
-# 6. Annex
+
+# 6. ANNEX
 
 ## 6.1 DTW function 
 
