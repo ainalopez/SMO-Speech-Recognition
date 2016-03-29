@@ -152,7 +152,7 @@ return(list(path=path, DTW=DTW))
 ```
 
 
-## 6.2 Speech Recognizer
+## 6.2 Speech Recognizer code
 
 ```{r, echo = TRUE, eval = FALSE}
 # input: isound is the path to the wav file with the sound.
@@ -174,14 +174,31 @@ SpeechRecognizer <- function(isound){
                         maxfreq=6855.6, 
                         sumpower=FALSE))
   
+  # Upload the four template sounds and compute their melfcc
   
-  # Compute the distance of the input sound with the tenplate sounds
+  g1 <- readWave("Project\googlel1.wav")
+  g2 <- readWave("Project\google2.wav")
+  f1 <- readWave("Project\facebook1.wav")
+  f2 <- readWave("Project\facebook2.wav")
+  
+  sr1 <- g1@samp.rate
+  sr2 <- g2@samp.rate
+  sr3 <- f1@samp.rate
+  sr4 <- f2@samp.rate
+  
+  google1 <- t(melfcc(g1, sr1, wintime=0.016, lifterexp=0, minfreq=133.33, maxfreq=6855.6, sumpower=FALSE))
+  google2 <- t(melfcc(g2, sr2, wintime=0.016, lifterexp=0, minfreq=133.33, maxfreq=6855.6, sumpower=FALSE))
+  facebook1 <- t(melfcc(f1, sr3, wintime=0.016, lifterexp=0, minfreq=133.33, maxfreq=6855.6, sumpower=FALSE))
+  facebook2 <- t(melfcc(b2, sr4, wintime=0.016, lifterexp=0, minfreq=133.33, maxfreq=6855.6, sumpower=FALSE))
+  
+  
+  # Compute the distance of the input sound with the template sounds
   distance.sound<-rep(NA, 4)
   
-  dtwg1 <- TimeWarp(gmail1, inputWord)
+  dtwg1 <- TimeWarp(google1, inputWord)
   distance.sound[1]<- tail(dtwg1$DTW[,1],1)
 
-  dtwg2 <- TimeWarp(gmail2, inputWord)
+  dtwg2 <- TimeWarp(google2, inputWord)
   distance.sound[2]<- tail(dtwg2$DTW[,1],1)
    
   dtwf1 <- TimeWarp(facebook1, inputWord)
@@ -193,7 +210,7 @@ SpeechRecognizer <- function(isound){
   
   # If the minimum distance is to the word gmail, open gmail
   if (which.min(distance.sound) == 1 | which.min(distance.sound) == 2){
-    system(paste("open http://gmail.com"))
+    system(paste("open http://google.com"))
   } 
   
    # If the minimum distance is to the word facebook, open facebook
