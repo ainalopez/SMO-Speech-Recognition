@@ -6,17 +6,27 @@ output: pdf_document
 ---
 
 # 1. Introduction
+
 Nick
 
+  
+&nbsp;
+&nbsp;
+
 # 2. Dynamic Time Warping
-Nick
+
+Nick  
 
 ## 2.1 Algorithm
 Nick
 
 ## 2.2 Modifications
 Major modifications are the step size conditions, step weighting and the global path constraints.
+
 ## 2.3 Applications
+
+&nbsp;
+&nbsp;
 
 
 # 3. Speech Recognition
@@ -36,12 +46,21 @@ Blablabla
 Blablabla
 
 
+&nbsp;
+&nbsp;
+
 
 # 4. Conclusions
 Blablabla
 
 
+&nbsp;
+&nbsp;
+
+
 # 5. Bibliography 
+
+\pagebreak
 
 # 6. Annex
 
@@ -176,7 +195,6 @@ SpeechRecognizer <- function(isound){
                         sumpower=FALSE))
   
   # Upload the four template sounds and compute their melfcc
-  
   g1 <- readWave("Project\googlel1.wav")
   g2 <- readWave("Project\google2.wav")
   f1 <- readWave("Project\facebook1.wav")
@@ -187,10 +205,14 @@ SpeechRecognizer <- function(isound){
   sr3 <- f1@samp.rate
   sr4 <- f2@samp.rate
   
-  google1 <- t(melfcc(g1, sr1, wintime=0.016, lifterexp=0, minfreq=133.33, maxfreq=6855.6, sumpower=FALSE))
-  google2 <- t(melfcc(g2, sr2, wintime=0.016, lifterexp=0, minfreq=133.33, maxfreq=6855.6, sumpower=FALSE))
-  facebook1 <- t(melfcc(f1, sr3, wintime=0.016, lifterexp=0, minfreq=133.33, maxfreq=6855.6, sumpower=FALSE))
-  facebook2 <- t(melfcc(b2, sr4, wintime=0.016, lifterexp=0, minfreq=133.33, maxfreq=6855.6, sumpower=FALSE))
+  google1 <- t(melfcc(g1, sr1, wintime=0.016, lifterexp=0, 
+                      minfreq=133.33, maxfreq=6855.6, sumpower=FALSE))
+  google2 <- t(melfcc(g2, sr2, wintime=0.016, lifterexp=0, 
+                      minfreq=133.33, maxfreq=6855.6, sumpower=FALSE))
+  facebook1 <- t(melfcc(f1, sr3, wintime=0.016, lifterexp=0, 
+                        minfreq=133.33, maxfreq=6855.6, sumpower=FALSE))
+  facebook2 <- t(melfcc(b2, sr4, wintime=0.016, lifterexp=0, 
+                        minfreq=133.33, maxfreq=6855.6, sumpower=FALSE))
   
   
   # Compute the distance of the input sound with the template sounds
