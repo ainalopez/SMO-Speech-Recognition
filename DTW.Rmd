@@ -21,9 +21,12 @@ Blablabla
 
 
 # 3. Speech Recognition
+
+AINA
 Blablabla, data, blablabla
 
 ## 3.1 Speech Processing
+AINA
 Blablabla
 
 ## 3.2 Dynamic Time Warping in this project
