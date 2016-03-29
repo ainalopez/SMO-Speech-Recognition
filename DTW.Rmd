@@ -21,8 +21,9 @@ Major modifications are the step size conditions, step weighting and the global 
 
 # 3. Speech Recognition
 
-AINA
-Blablabla, data, blablabla
+We implemented a speech recognizer using a modified version of the DTW algorithm. Using DTW and speech processing techniques (i.e. Mel Frequency Cepstrum Coefficients), our algorithm is able to detect which action we want to perform: open the google search or open our facebook webpage. 
+
+This speech recognizer takes as input a sound file and compares it with some template words: *google* and *facebook*. In order to make our recognizer more robust, we have used two template words for each sound. After comparing the input sound with each template word, the algorithm chooses the one with the shortest path. 
 
 ## 3.1 Speech Processing
 AINA
