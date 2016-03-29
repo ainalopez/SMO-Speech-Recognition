@@ -46,7 +46,6 @@ Blablabla
 
 ## 6.1 DTW function 
 
-
 ```{r,echo = TRUE, eval = FALSE}
 TimeWarp<-function(x,y,w=4){
   
@@ -151,3 +150,7 @@ return(list(path=path, DTW=DTW))
 
 
 ```
+
+
+## 6.2 Speech Recognizer
+
