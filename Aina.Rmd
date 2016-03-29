@@ -24,7 +24,7 @@ If we observe the sound waves of our sounds, we see their differences.
 
 &nbsp;
 
-An extended approach is to transform the sound waves into the frequency domain and then, extract some coefficients ([1], [2]). In this project, we tried with two different coefficients: Mel Frequency Cepstral Coefficients (MFCC) and Linear Prediction Coefficient (LPC). Unfortunately, we didn't obtained good results with LPC and we decided to use only MFCC.  
+An extended approach is to transform the sound waves into the frequency domain and then, delte the unnecessary frequencies and extract some coefficients ([1], [2]). In this project, we tried with two different coefficients: Mel Frequency Cepstral Coefficients (MFCC) and Linear Prediction Coefficient (LPC). Unfortunately, we didn't obtained good results with LPC and we decided to use only MFCC.  
 \
 \
 
@@ -45,8 +45,21 @@ $$
 w(n) = 0.54 - cos( \frac{2 \pi n}{N-1})
 $$  
 
-where N is the length of the window, in this case the length of the frame. 
+where N is the length of the window, in this case the length of the frame.  
 \
 \
 
-**4. Mel Frequency Cepstral Coefficient (MFCC)**: 
+**4. Mel Frequency Cepstral Coefficient (MFCC)**: Mel scale is based on human perception of frequencies. The basic idea of MFCC is to only keep the most relevant frequencies and ignore the others. The process is the following:
+
+1. Convert the frames into the frequency domain using the Discrete Fourier Transform (DFT).  
+
+2. Apply the Mel Scale filter bank, which is a set of triangular filters, and take the logarithm.  
+
+3. Finally, to transform the results into the time domain again the Discrete Cosine Transform (DCT) is applied.
+
+From this process we obtain K coefficients, in our case K = 11.  
+\
+\
+
+At the end, we end up having M frames and each frame contains a vector of 11 coefficients. 
+
