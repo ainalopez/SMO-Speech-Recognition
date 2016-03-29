@@ -1,0 +1,41 @@
+---
+title: "Speech Recognition"
+author: "SMO GROUP"
+date: "29 March 2016"
+output: pdf_document
+---
+
+# 1. Introduction
+Blablabla
+
+
+# 2. Dynamic Time Warping
+Blablabla
+
+## 2.1 Algorithm
+ 
+## 2.2 Modifications
+ 
+## 2.3 Applications
+
+
+
+# 3. Speech Recognition
+Blablabla, data, blablabla
+
+## 3.1 Speech Processing
+Blablabla
+
+## 3.2 Dynamic Time Warping in this project
+Blablabla
+
+## 3.3 Results
+Blablabla
+
+
+
+# 4. Conclusions
+Blablabla
+
+
+# 5. Annex
