@@ -43,10 +43,6 @@ Feature Based DTW algorithm [B] works in the following way: first defines a glob
 Adaptive Feature Based DTW enjoys the additional customization of Feature Based DTW where the contributions of global features and local features are leveraged by weighting factors.
 Empirically, both methods enhance the learning capacity of DTW based classification algorithms while the advanced version goes the furthest in improvement.
 
-
-- Cluster Generative Statistical DTW
-
-
 ## 2.4 Applications
 
 Dynamic Time Warping is used to analyze any data which can be turned into a linear sequence: video, audio, and graphics data alongside original time series data.  
