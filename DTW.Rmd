@@ -20,9 +20,9 @@ Nick
 ## 2.1 Algorithm
 Nick
 
-## 2.2 Modifications
+## 2.2 Customizations
 
-To inhance performance and sensitivity of the initially proposed algorithm, a couple of modifications have been developed. Among the most significant ones are *the step size conditions*, *the step weighting* and *the global path constraints*.  
+To inhance performance and sensitivity of the initially proposed algorithm, a couple of customizations have been developed. Among the most significant ones are *the step size conditions*, *the step weighting* and *the global path constraints*.  
 
 The step size condition takes care of possibly unrealistic correspondence between the time-series features of different length by introducing a slope constraint on each step and between several consecutive points of the warping path. For example, after moving in the same direction horizontally for *k* consecutive points the warping path is not allowed to continue in the same direction before stepping *l* points in the diagonal direction, as on the figure below.   
 ![Slope constraint](./Figures/sc.png) 
@@ -33,10 +33,18 @@ Weighting helps to favour or penalize certain types of point-to-point correspond
 Similarly to the step function constraints, the global path constraints are used as the way to improve the computational cost and optimize DTW sensitivity. It could be performed in a couple of ways, for example, through Itakura parallelogram on the left in the picture below, or Sakoe-Chiba band on the right.  
 ![Global path constraint](./Figures/gc.png)
 
-## 2.3 Applications
+## 2.3 Modifications
 
-&nbsp;
-&nbsp;
+- Derivative DTW
+- Feature Based DTW
+- Cluster Generative Statistical DTW
+
+
+## 2.4 Applications
+
+Dynamic Time Warping is used to analyze any data which can be turned into a linear sequence: video, audio, and graphics data alongside original time series data.  
+
+The areas to apply DTW are extensive and include handwriting and online signature matching, sign language and gestures recognition, data mining and time series clustering, computer vision and computer animation, surveillance, protein sequence alignment and chemical engineering, music and signal processing.
 
 
 # 3. SPEECH RECOGNIZER
