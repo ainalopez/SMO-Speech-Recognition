@@ -32,11 +32,18 @@ Similarly to the step function constraints, the global path constraints are used
 ## 2.3 Modifications
 
 ### Derivative DTW
-Derivative DTW [A] proposes replacement of the value of each data point with its estimated local first derivation in the process of dynamic time warping. The improvement of the classic DTW is shown in the figure below, as after creating 1) two artificial signals, and identifying 2) the intuitive feature to feature warping alignment, the
-alignment produced by classic DTW and the alignment produced by DDTW are sections 3) and 4) respectively.  
+Derivative DTW [A] proposes replacement of the value of each data point with its estimated local first derivation in the process of dynamic time warping. The improvement of the classic DTW is shown in the figure below, as after creating 1) two artificial signals, and identifying 2) the intuitive feature to feature warping alignment, the alignment produced by classic DTW and the alignment produced by DDTW are sections 3) and 4) respectively.  
 ![DDTW](./Figures/ddtw.png)
 
-- Feature Based DTW
+### Feature Based DTW and Adaptive Feature Based DTW
+ 
+Feature Based DTW algorithm [B] works in the following way: first defines a global feature and a local feature for each point in a time series sequence, then dynamically aligns two time series sequences based on both the global features and local features of each points in the sequences.
+
+Adaptive Feature Based DTW enjoys the additional customization of Feature Based DTW where the contributions of global features and local features are leveraged by weighting factors.
+
+Empirically, both methods enhance the learning capacity of DTW based classification algorithms while the advanced version goes the furthest in improvement.
+
+
 - Cluster Generative Statistical DTW
 
 
@@ -130,8 +137,9 @@ Blablabla
 
 # 5. References 
 
-[A] Keogh, E. J., & Pazzani, M. J. Derivative Dynamic Time Warping
-[link](http://www.ics.uci.edu/~pazzani/Publications/keogh-kdd.pdf)
+[A] Keogh, E. J., & Pazzani, M. J. [Derivative Dynamic Time Warping](http://www.ics.uci.edu/~pazzani/Publications/keogh-kdd.pdf)
+
+[B] Xie, Y. & Wiltgen, B. [Adaptive Feature Based Dynamic Time Warping](http://paper.ijcsns.org/07_book/201001/20100135.pdf)
 
 [1] Anand, D. A., & Meher, P. K. Combined LPC and MFCC Features based technique for Isolated Speech Recognition.  
 
