@@ -89,10 +89,9 @@ From this process we obtain K coefficients, in our case K = 11.
 \
 
 At the end, we end up having M frames and each frame contains a vector of 11 coefficients.  
-\
-\
 
-## 3.2 Dynamic Time Warping in this project
+
+## 3.2 Dynamic Time Warping in this project  
 Blablabla
 
 ## 3.3 Results
