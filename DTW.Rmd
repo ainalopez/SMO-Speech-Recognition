@@ -31,7 +31,7 @@ Weighting helps to favour or penalize certain types of point-to-point correspond
 ![Weighting](./Figures/w.png)
 
 Similarly to the step function constraints, the global path constraints are used as the way to improve the computational cost and optimize DTW sensitivity. It could be performed in a couple of ways, for example, through Itakura parallelogram on the left in the picture below, or Sakoe-Chiba band on the right.
-![Global path constraints](.Figures/gp.png)
+![Global path constraints](./Figures/gp.png)
 
 ## 2.3 Applications
 
@@ -53,10 +53,10 @@ Since each sound has a different length, DTW is a good algorithm for comparing t
 If we observe the sound waves of our sounds, we see their differences.  
 
 
-![](.\Figures\GoogleWaves.png)
+![](Figures\GoogleWaves.png)
 *Figure 1. Sound Waves of the word Google.*
 
-![](.\Figures\FacebookWaves.png)
+![](Figures\FacebookWaves.png)
 *Figure 2. Sound Waves of the word Facebook.*   
 
 &nbsp;
