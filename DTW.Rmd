@@ -24,10 +24,10 @@ Nick
 To inhance performance and sensitivity of the initially proposed algorithm, a couple of modifications have been developed. Among the most significant ones are *the step size conditions*, *the step weighting* and *the global path constraints*.  
 
 The step size condition takes care of possibly unrealistic correspondence between the time-series features of different length by introducing a slope constraint on each step and between several consecutive points of the warping path. For example, after moving in the same direction horizontally for k consecutive points the warping path is not allowed to continue in the same direction before stepping l points in the diagonal direction, as on the figure below.   
-![Caption](https://github.com/ainalopez/SMO-Speech-Recognition/blob/master/Figures/sc.png)
+![Caption](https://github.com/ainalopez/SMO-Speech-Recognition/blob/master/Figures/sc.png=100x)
 
 Weightning helps to favour or penalize certain types of point-to-point correspondence. Both approaches - symmetric and asymmetric weights - find successful implementation depending on topic researched. Below on the left side of the figure symmetric weights are demonstrated, while on the right side is an asymmetric approach. 
-![Caption](https://github.com/ainalopez/SMO-Speech-Recognition/blob/master/Figures/w.png)
+![Caption](https://github.com/ainalopez/SMO-Speech-Recognition/blob/master/Figures/w.png=200x)
 
 Similarly to the step function constraints, the global path constraints are used as the way to improve the computational cost and optimize DTW sensitivity.
 
