@@ -22,7 +22,7 @@ Nick
 
 ## 2.2 Customizations
 
-To inhance performance and sensitivity of the initially proposed algorithm, a couple of modifications have been developed. Among the most significant ones are *the step size conditions*, *the step weighting* and *the global path constraints*.  
+To inhance performance and sensitivity of the initially proposed algorithm, a couple of customizations have been developed. Among the most significant ones are *the step size conditions*, *the step weighting* and *the global path constraints*.  
 
 The step size condition takes care of possibly unrealistic correspondence between the time-series features of different length by introducing a slope constraint on each step and between several consecutive points of the warping path. For example, after moving in the same direction horizontally for *k* consecutive points the warping path is not allowed to continue in the same direction before stepping *l* points in the diagonal direction, as on the figure below.   
 ![Slope constraint](./Figures/sc.png) 
@@ -44,7 +44,7 @@ Similarly to the step function constraints, the global path constraints are used
 
 Dynamic Time Warping is used to analyze any data which can be turned into a linear sequence: video, audio, and graphics data alongside original time series data.  
 
-The areas to apply Dynamic Time Warping are extensive and include handwriting and online signature matching, sign language and gestures recognition, data mining and time series clustering, computer vision and computer animation, surveillance, protein sequence alignment and chemical engineering, music and signal processing.
+The areas to apply DTW are extensive and include handwriting and online signature matching, sign language and gestures recognition, data mining and time series clustering, computer vision and computer animation, surveillance, protein sequence alignment and chemical engineering, music and signal processing.
 
 
 # 3. SPEECH RECOGNIZER
