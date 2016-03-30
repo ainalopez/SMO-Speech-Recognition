@@ -35,8 +35,9 @@ Similarly to the step function constraints, the global path constraints are used
 
 ## 2.3 Applications
 
-&nbsp;
-&nbsp;
+Dynamic Time Warping is used to analyze any data which can be turned into a linear sequence: video, audio, and graphics data alongside original time series data.  
+
+The areas to apply Dynamic Time Warping are extensive and include handwriting and online signature matching, sign language and gestures recognition, data mining and time series clustering, computer vision and computer animation, surveillance, protein sequence alignment and chemical engineering, music and signal processing.
 
 
 # 3. SPEECH RECOGNIZER
