@@ -36,11 +36,11 @@ Derivative DTW [A] proposes replacement of the value of each data point with its
 ![DDTW](./Figures/ddtw.png)
 
 ### Feature Based DTW and Adaptive Feature Based DTW
- 
+
+During various implementations of DTW, it was noticed that the value or the deviation of a point may not reflect the position of this point in global or local trends of the sequence. Along the further research on the issue, Feature Based DTW and Adaptive Feature Based DTW by Xie and Wiltgen [B] are introduced.
+
 Feature Based DTW algorithm [B] works in the following way: first defines a global feature and a local feature for each point in a time series sequence, then dynamically aligns two time series sequences based on both the global features and local features of each points in the sequences.
-
 Adaptive Feature Based DTW enjoys the additional customization of Feature Based DTW where the contributions of global features and local features are leveraged by weighting factors.
-
 Empirically, both methods enhance the learning capacity of DTW based classification algorithms while the advanced version goes the furthest in improvement.
 
 
