@@ -55,7 +55,7 @@ The areas to apply DTW are extensive and include handwriting and online signatur
 &nbsp;
 &nbsp;
 
-# 3. SPEECH RECOGNIZER
+# 3. Speech Recognizer
 
 We implemented a speech recognizer using a modified version of the DTW algorithm. Using DTW and speech processing techniques (i.e. Mel Frequency Cepstral Coefficients), our algorithm is able to detect which action we want to perform: open the google search or open our facebook webpage. 
 
