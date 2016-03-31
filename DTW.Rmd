@@ -24,7 +24,7 @@ To inhance performance and sensitivity of the initially proposed algorithm, a co
 The step size condition takes care of potentially unrealistic correspondence between the time-series features of different length, by introducing a slope constraint on each step and between consecutive points of the warping path. For example, after moving in the same direction horizontally for *k* consecutive points the warping path is not allowed to continue in the same direction before stepping *l* points in the diagonal direction, as on the figure below. This prevents the path from getting too steep or too flat. Below is a picture describing the constraint.  
 ![Slope constraint](./Figures/sc.png) 
 
-Weighting helps to favour or penalize certain types of point-to-point correspondence. Both approaches - symmetric and asymmetric weights - find successful implementation depending on topic researched. Below on the left side of the figure symmetric weights are demonstrated, while on the right side are asymmetric weights.  
+We implementstep weighting to help favour or penalize certain types of point-to-point correspondence. Both approaches - symmetric and asymmetric weights - find successful implementation depending on the topic researched. Pictured below in the left figure we demonstrate symmetric weights, while in the right figure we demonstrate asymmetric weights.  
 ![Weighting](./Figures/w.png)
 
 Similarly to the step function constraints, the global path constraints are used as the way to improve the computational cost and optimize DTW sensitivity. It could be performed in a couple of ways, for example, through Itakura parallelogram on the left in the picture below, or Sakoe-Chiba band on the right.  
