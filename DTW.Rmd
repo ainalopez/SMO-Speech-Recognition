@@ -86,14 +86,9 @@ We implement step weighting to help favour or penalize certain types of point-to
 Derivative DTW [1] proposes replacement of the value of each data point with its estimated local first derivation in the process of dynamic time warping. The improvement over the classic DTW is shown in the figure below, after creating 1) two artificial signals, and identifying 2) the intuitive feature to feature warping alignment, the alignment produced by classic DTW and the alignment produced by DDTW are sections 3) and 4) respectively.  
 ![DDTW](./Figures/ddtw.png)
 
-### Flexible DTW
-
-Flexible DTW [2] method is developed for measuring the similarity of two time series sequences. The Flexible DTW algorithm adds an additional score as the reward for the contiguously long one-to-one fragment, i.e. makes the lengths of contiguous one-to-one fragments as long as possible.
-However, the most successful implementation of the algorithm does not stand alone and the experimental results show that by combining the Flexible DTW, DTW and Derivative DTW methods to form a classifier ensembled with the voting scheme, there is a lesser average error rate than that of each individual method.
-
 ### Feature Based DTW and Adaptive Feature Based DTW
 
-The results of DTW modifications showed, however, that the value or the deviation of a point may not reflect the position of this point in global or local trends of the sequence. Upon further research of the issue, Feature Based DTW and Adaptive Feature Based DTW by Xie and Wiltgen [3] are introduced.
+Comparing various implementations of DTW, the value or the deviation of a point may not reflect the position of this point in global or local trends of the sequence. Upon further research of the issue, Feature Based DTW and Adaptive Feature Based DTW by Xie and Wiltgen [2] are introduced.
 
 Feature Based DTW algorithm works in the following way: first the algorithm defines a global and local feature for each point in a time series sequence, then dynamically aligns the two time series sequences based on both the global and local features of each points in the sequences.
 Adaptive Feature Based DTW enjoys the additional customization of Feature Based DTW where the contributions of global features and local features are leveraged by weighting factors.
@@ -101,13 +96,13 @@ Empirically, both methods enhance the learning capacity of DTW based classificat
 
 ### Cluster Generative Statistical DTW 
 
-Multi-purpose classification problems that rely on the sequential type of data can have at its core a modified DTW algorithm. Here, Cluster Generative Statistical DTW [4] is described as a general, scalable, (hidden Markov modeling) based method for variable-sized, sequential data that holistically combines cluster analysis and statistical sequence modeling. One of its strength lies in initialization of the statistical warping framework through defined DTW (Viterbi) distance. 
+Multi-purpose classification problems that rely on the sequential type of data can have at its core a modified DTW algorithm. Here, Cluster Generative Statistical DTW [3] is described as a general, scalable, (hidden Markov modeling) based method for variable-sized, sequential data that holistically combines cluster analysis and statistical sequence modeling. One of its strength lies in initialization of the statistical warping framework. through defined DTW (Viterbi) distance. 
 
 
 ## 2.3 Applications
 
-Dynamic Time Warping is used to analyze any data which can be turned into a linear sequence: video, audio, and graphics data alongside original time series data.
-DTW is often used in handwriting and online signature matching, sign language and gestures recognition, data mining and time series clustering, computer vision and computer animation, surveillance, protein sequence alignment and chemical engineering, and signal processing.  
+Dynamic Time Warping is used to analyze any data which can be turned into a linear sequence: video, audio, and graphics data alongside original time series data. DTW is often used in handwriting and online signature matching, sign language and gestures recognition, data mining and time series clustering, computer vision and computer animation, surveillance, protein sequence alignment and chemical engineering, and signal processing.  
+
 
 # 3. Speech Recognizer
 
@@ -129,7 +124,10 @@ Looking at the sound waves of our examples, we can see their differences below.
 ![](Figures\FacebookWaves.png)
 *Figure 2. Sound Waves of the word Facebook.*   
 
-An extended approach is to transform the sound waves into the frequency domain and delete the unnecessary frequencies while extracting some coefficients ([5], [6]). In this project, we tried with two different coefficients: Mel Frequency Cepstral Coefficients (MFCC) and Linear Prediction Coefficient (LPC). Unfortunately, we didn't obtained good results with LPC and we decided to use only MFCC.  
+&nbsp;
+
+An extended approach is to transform the sound waves into the frequency domain and delete the unnecessary frequencies and extract some coefficients ([3], [4]). In this project, we tried with two different coefficients: Mel Frequency Cepstral Coefficients (MFCC) and Linear Prediction Coefficient (LPC). Unfortunately, we didn't obtained good results with LPC and we decided to use MFCC.  
+An extended approach is to transform the sound waves into the frequency domain and delete the unnecessary frequencies while extracting some coefficients ([4], [5]). In this project, we tried with two different coefficients: Mel Frequency Cepstral Coefficients (MFCC) and Linear Prediction Coefficient (LPC). Unfortunately, we didn't obtained good results with LPC and we decided to use only MFCC.  
 \
 \
 
@@ -239,15 +237,11 @@ We found that our algorithm works for both male and female voices. Thanks to MFC
 
 [1] Keogh, E. J., & Pazzani, M. J. [Derivative Dynamic Time Warping](http://www.ics.uci.edu/~pazzani/Publications/keogh-kdd.pdf)
 
-[2] Hsu, C.-J., Huang, K.-S., Yang, C.-B. & Guo Y.-P. [Flexible Dynamic Time Warping for Time Series Classification](http://www.sciencedirect.com/science/article/pii/S1877050915012521)
+[2] Xie, Y. & Wiltgen, B. [Adaptive Feature Based Dynamic Time Warping](http://paper.ijcsns.org/07_book/201001/20100135.pdf)
 
-[3] Xie, Y. & Wiltgen, B. [Adaptive Feature Based Dynamic Time Warping](http://paper.ijcsns.org/07_book/201001/20100135.pdf)
+[3] Anand, D. A., & Meher, P. K. [Combined LPC and MFCC Features based technique for Isolated Speech Recognition.](http://www-personal.umich.edu/~aniketde/ISCAS2013_paper.pdf) 
 
-[4] Bahlmann C. & Burkhardt, H. [The Writer Independent Online Handwriting Recognition System frog on hand and Cluster Generative Statistical Dynamic Time Warping](http://lmb.informatik.uni-freiburg.de/people/bahlmann/data/ba_bu_tpami04.pdf)
-
-[5] Anand, D. A., & Meher, P. K. [Combined LPC and MFCC Features based technique for Isolated Speech Recognition.](http://www-personal.umich.edu/~aniketde/ISCAS2013_paper.pdf) 
-
-[6] Shinde, M. R., & Pawar, V. P. [Dynamic time Warping using MATLAB & PRAAT.](http://www.ijser.org/researchpaper%5CDynamic-time-Warping-using-MATLAB-PRAAT.pdf) 
+[4] Shinde, M. R., & Pawar, V. P. [Dynamic time Warping using MATLAB & PRAAT.](http://www.ijser.org/researchpaper%5CDynamic-time-Warping-using-MATLAB-PRAAT.pdf) 
 
 
 
