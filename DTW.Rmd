@@ -67,8 +67,13 @@ where $r$ is a positive integer called window length.
 
 The step size condition takes care of potentially unrealistic correspondence between the time-series features of different length, by introducing a slope constraint on each step and between consecutive points of the warping path. For example, after moving in the same direction horizontally for *k* consecutive points the warping path is not allowed to continue in the same direction before stepping *l* points in the diagonal direction, as on the figure below. This condition prevents that very short parts of the sequences are matched to very long ones. Below is a picture describing the constraint.  
 ![Slope constraint](./Figures/sc.png) 
+<<<<<<< Updated upstream
 
 
+=======
+
+
+>>>>>>> Stashed changes
 ### Weighting
 
 We implementstep weighting to help favour or penalize certain types of point-to-point correspondence. Both approaches - symmetric and asymmetric weights - find successful implementation depending on the topic researched. Pictured below in the left figure we demonstrate symmetric weights, while in the right figure we demonstrate asymmetric weights.  
@@ -87,6 +92,15 @@ Derivative DTW [1] proposes replacement of the value of each data point with its
 
 Comparing various implementations of DTW, the value or the deviation of a point may not reflect the position of this point in global or local trends of the sequence. Upon further research of the issue, Feature Based DTW and Adaptive Feature Based DTW by Xie and Wiltgen [2] are introduced.
 
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+
+Feature Based DTW algorithm [2] works in the following way: the algorithm defines a global feature and a local feature for each point in a time series sequence. The two time series sequences are dynamically alligned based on both the global features and local features of each points in the sequences.
+Adaptive Feature Based DTW benefits from the additional customization of Feature Based DTW where the contributions of global features and local features are leveraged by weighting factors.
+=======
+>>>>>>> origin/master
+>>>>>>> Stashed changes
 Feature Based DTW algorithm works in the following way: first defines a global feature and a local feature for each point in a time series sequence, then dynamically aligns two time series sequences based on both the global features and local features of each points in the sequences.
 Adaptive Feature Based DTW enjoys the additional customization of Feature Based DTW where the contributions of global features and local features are leveraged by weighting factors.
 Empirically, both methods enhance the learning capacity of DTW based classification algorithms while the advanced version goes the furthest in improvement.
@@ -94,6 +108,15 @@ Empirically, both methods enhance the learning capacity of DTW based classificat
 ### Cluster Generative Statistical DTW 
 
 Multi-purpose classification problems that rely on the sequential type of data can have at its core a modified DTW algorithm. Here, Cluster Generative Statistical DTW [3] is described as a general, scalable, (hidden Markov modeling)-based method for variable-sized, sequential data that holistically combines cluster analysis and statistical sequence modeling. One of its strength lies in initialization of the statistical warping framework. through defined DTW (Viterbi) distance. 
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+
+## 2.4 Applications
+
+Dynamic Time Warping is used to analyze any data which can be turned into a linear sequence: video, audio, and graphics data alongside original time series data. DTW is often used in handwriting and online signature matching, sign language and gestures recognition, data mining and time series clustering, computer vision and computer animation, surveillance, protein sequence alignment and chemical engineering, and signal processing.  
+=======
+>>>>>>> Stashed changes
 
 
 
@@ -102,6 +125,10 @@ Multi-purpose classification problems that rely on the sequential type of data c
 Dynamic Time Warping is used to analyze any data which can be turned into a linear sequence: video, audio, and graphics data alongside original time series data.  
 
 The areas to apply DTW are extensive and include handwriting and online signature matching, sign language and gestures recognition, data mining and time series clustering, computer vision and computer animation, surveillance, protein sequence alignment and chemical engineering, music and signal processing.  
+<<<<<<< Updated upstream
+=======
+>>>>>>> origin/master
+>>>>>>> Stashed changes
 
 &nbsp;
 &nbsp;
@@ -117,7 +144,15 @@ This speech recognizer takes as input a sound file and compares it with some tem
 
 Since each sound has a different length, DTW is a good algorithm for comparing them. However, sound Waves are sinusoids and cannot be properly compared on the time domain (amplitude vs seconds). The reason is simple, a sound wave of a word can change radically from a person to another, and even the sound waves of a word generated by a single person can be very different.  
 
+<<<<<<< Updated upstream
 If we observe the sound waves of our sounds, we see their differences.  
+=======
+<<<<<<< HEAD
+Looking at the sound waves of our examples, we can see their differences below.  
+=======
+If we observe the sound waves of our sounds, we see their differences.  
+>>>>>>> origin/master
+>>>>>>> Stashed changes
 
 
 ![](Figures\GoogleWaves.png)
@@ -128,7 +163,16 @@ If we observe the sound waves of our sounds, we see their differences.
 
 &nbsp;
 
+<<<<<<< Updated upstream
 An extended approach is to transform the sound waves into the frequency domain and then, delte the unnecessary frequencies and extract some coefficients ([3], [4]). In this project, we tried with two different coefficients: Mel Frequency Cepstral Coefficients (MFCC) and Linear Prediction Coefficient (LPC). Unfortunately, we didn't obtained good results with LPC and we decided to use only MFCC.  
+=======
+<<<<<<< HEAD
+An extended approach is to transform the sound waves into the frequency domain and delete the unnecessary frequencies and extract some coefficients ([3], [4]). In this project, we tried with two different coefficients: Mel Frequency Cepstral Coefficients (MFCC) and Linear Prediction Coefficient (LPC). Unfortunately, we didn't obtained good results with LPC and we decided to use MFCC.  
+An extended approach is to transform the sound waves into the frequency domain and then, delte the unnecessary frequencies and extract some coefficients ([4], [5]). In this project, we tried with two different coefficients: Mel Frequency Cepstral Coefficients (MFCC) and Linear Prediction Coefficient (LPC). Unfortunately, we didn't obtained good results with LPC and we decided to use only MFCC.  
+=======
+An extended approach is to transform the sound waves into the frequency domain and then, delte the unnecessary frequencies and extract some coefficients ([3], [4]). In this project, we tried with two different coefficients: Mel Frequency Cepstral Coefficients (MFCC) and Linear Prediction Coefficient (LPC). Unfortunately, we didn't obtained good results with LPC and we decided to use only MFCC.  
+>>>>>>> origin/master
+>>>>>>> Stashed changes
 \
 \
 
