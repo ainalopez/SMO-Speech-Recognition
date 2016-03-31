@@ -7,7 +7,7 @@ output: pdf_document
 
 # 1. Introduction
 
-The purpose of our project is to use dynamic programming for speech recognition. The algorithm uses a dynamic time warping function to establish similarities between two sound waves. We took inspirations from the symmetric algorithm established in “Dynamic Programming Algorithm Optimization for Spoken Word Recognition”, (Sakoe and Chiba 1978), making slight modifications to improve the algorithm. We test our algorithm on several common words such as “Google” and “Facebook”, taking sound waves from one of our group members. The algorithm is able to distinguish distinct words and is programmed to open a webpage of the recognized word. The algorithm can distinguish words in an efficient manner due to dynamic programming along with several modifications discussed below. 
+The purpose of our project is to use dynamic programming for speech recognition. The algorithm uses a dynamic time warping function to establish similarities between two sound waves. We took inspirations from the symmetric algorithm established in “Dynamic Programming Algorithm Optimization for Spoken Word Recognition”, (Sakoe and Chiba 1978), making slight restrictions on the algorithm to improve performance. We test our algorithm on several common words such as “Google” and “Facebook”, taking sound waves from one of our group members. The algorithm is able to distinguish distinct words and is programmed to open a webpage of the recognized word. The algorithm can distinguish words in an efficient manner due to dynamic programming along with several restrictions discussed below. 
 
 &nbsp;
 &nbsp;
