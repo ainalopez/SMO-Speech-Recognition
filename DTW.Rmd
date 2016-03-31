@@ -225,7 +225,13 @@ This process could be applied in an application where the user can open a progra
 
 # 4. Conclusions
 
-We found that our algorithm works for both male and female voices. Thanks to MFCC, we are able to extract the important frequencies and eliminate the others, creating a recognizer robust to gender. In the near future we would like more template data to make our algorithm more robust. We would like to test our algorithm on more voices, but with the limited data we had, we are not able to make universal claims at this time. We found our dynamic time warping function performed fast and accurately, however there is room for improvement. Our algorithm works well on individual words, however it remains untested on sentences. From R, we were not able to import voices in real time, however this would add a unique capability to our algorithm. 
+* We found our dynamic time warping function performed fast and accurately, however there is room for improvement. Our algorithm works well on individual words, however it remains untested on sentences.
+
+* We found that our algorithm works for both male and female voices. Thanks to MFCC, we are able to extract the important frequencies and eliminate the others, creating a recognizer robust to gender. 
+
+* In the near future we would like more template data to make our algorithm more robust. We would like to test our algorithm on more voices, but with the limited data we had, we are not able to make universal claims at this time. 
+
+* From R, we were not able to import voices in real time, however this would add a unique capability to our algorithm. 
 
 
 
