@@ -15,7 +15,64 @@ The purpose of our project is to use dynamic programming for speech recognition.
 One of the difficulties in speech recognition is comparing different sound waves. The length of the sound waves almost never match, even if the words are spoken in the same manner. We use the term “sound waves” to describe the user-spoken words taken as input into our algorithm. Speech recognition algorithms run into problems if the sound waves are not aligned properly. To combat this issue, we use a dynamic time warping function to account for differences across sound waves. A dynamic time warping function takes into account differences in sound wave lengths, and finds an “optimal” distance between the two sequences. Two types of time warping functions exist, asymmetric, where the time axis of one sound wave is transformed onto that of the other sound wave, and symmetric, where both waves are mapped to a newly defined common axis. We chose to implement a symmetric warping function due to its superior performance.  
 
 ## 2.1 Algorithm
-Nick
+
+
+
+## Restrictions on Warping Function
+
+If we use the original DTW function we may overfit the the alingment path. IF we want this path to be smooth and stable we need to impose some conditions to the function. 
+
+- Monotonicity condition
+
+This condition guarantees that the index does not jump over time, this is, that the features are not repeated in the alingment. 
+$i(k-1) \leq i(k)$ and $j(k-1) \leq j(k)$
+
+
+- Continuity condition
+
+This condition guarantees that the alingment does not omit some important features. 
+
+$i(k-1) - i(k) \leq 1$ and $j(k-1) - j(k) \leq 1$
+
+As a result of these two restriction, the following relation holds between two consecutive points:
+
+
+$$
+c(k-1)=
+\begin{cases}
+(i(k),j(k)-1) \\
+(i(k)-1,j(k)) \\
+(i(k)-1,j(k)-1)
+\end{cases}
+$$
+
+- Boundary condition
+
+This condition implies that the alingment path starts at the bottom left and ends at the top right. This is useful to guarantee that the alingment dones not consider partially one of the sequences. 
+
+$i(1)=1, j(1)=1$ and $i(K)=I , j(K)=J$ 
+
+
+
+- Adjust window condition
+
+This condition forces the alingment path to be close to the diagonal. This ensures that the path does not skip features and gets stuck at some features.
+
+$|i(k)-j(k) \leq | r$
+
+where $r$ is a positive integer called window length.
+
+- Slope constraint condition
+
+If point $c(k)$ moves forward in the direction of $i$ or $j$ axis consecutive m times, then point  c(k) is not allowed to step further in the same direction before stepping at least n times in the diagonal direction. The effective intensity of the slope constraint can be evaluated by the following measure
+
+$P= \frac{n}{m}$
+
+If $P=0$ then there are no restrictions to the slope of the warping function. If $P=\infty$ then the warfing function is restricted to the diagonal line $i=j$.
+
+This condition prevents that very short parts of the sequences are matched to very long ones. 
+
+  
 
 ## 2.2 Customizations
 
