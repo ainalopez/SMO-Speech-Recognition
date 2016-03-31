@@ -20,7 +20,27 @@ The code and sounds of this project can be found in our [Github Repository](http
 One of the difficulties in speech recognition is comparing different sound waves. The length of the sound waves almost never match, even if the words are spoken in the same manner. We use the term “sound waves” to describe the user-spoken words taken as input into our algorithm. Speech recognition algorithms run into problems if the sound waves are not aligned properly. To combat this issue, we use a dynamic time warping function to account for differences across sound waves. A dynamic time warping function takes into account differences in sound wave lengths, and finds an “optimal” path between the two sequences where they are most similar. Two types of time warping functions exist, asymmetric, where the time axis of one sound wave is transformed onto that of the other sound wave, and symmetric, where both waves are mapped to a newly defined common axis. We chose to implement a symmetric warping function due to its superior performance.  
 
 ## 2.1 Algorithm
+
+The execution of the algorithm requires the creation of a matrix  whose rows correspond to one time series and the columns to the other, both starting at the bottom left. The elements of the matrix correspond to the distance between the values of the two time series. A path of this matrix specifies how the observations are matched, and its length is the sum of the distances between those points. The best match or alignment between these two sequences is a path of the matrix which minimizes the total distance between the two sequences. 
+
 The algorithm is initalized with the parameter $r$, which squeezes the path in between the warping window. The algorithm then initializes the first point, in the bottom corner of the matrix. The algorithm computes the distances between the two time series from left to right working its way up the matrix, eventually stopping at the top right corner. From the right corner, it finds the path that takes the shortest distance from the top corner back to the bottom, giving us the path where the time series are most similar. 
+
+In each step of the algorithm we apply the following dynamic equation to find the next match of the path.
+
+$$
+g(i,j)= Min
+\begin{cases}
+g(i,j-1) + d(i,j) \\
+g(i-1,j) + d(i,j) \\
+g(i-1,j-1) + d(i,j)
+\end{cases}
+$$
+
+The plot below is an exmaple of an alingment path of two time series. 
+
+![Path alingment](./Figures/DTWgrid.gif)
+
+
 
 ## Restrictions on Warping Function
 
