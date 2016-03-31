@@ -1,5 +1,5 @@
 ---
-title: "Speech Recognition"
+title: "Speech Recognition and Dynamic Programming"
 author: "Kseniya Bout, Nick Halliwell, Aina Lopez, Yaroslav Marchuk"
 date: "29 March 2016"
 output: pdf_document
@@ -7,12 +7,12 @@ output: pdf_document
 
 ## 1. Introduction
 
-The purpose of our project is to use dynamic programming for speech recognition. The algorithm uses a dynamic time warping function to establish similarities between two sound waves. We took inspirations from the symmetric algorithm established in “Dynamic Programming Algorithm Optimization for Spoken Word Recognition”, (Sakoe and Chiba 1978), making slight restrictions on the algorithm to improve performance. We test our algorithm on several common words such as “Google” and “Facebook”, taking sound waves from one of our group members. The algorithm is able to distinguish distinct words and is programmed to open a webpage of the recognized word. The algorithm can distinguish words in an efficient manner due to dynamic programming along with several restrictions discussed below. 
+The purpose of our project is to use dynamic programming for speech recognition. Our algorithm uses a dynamic time warping function to establish similarities between two sound waves. We took inspirations from the symmetric algorithm established in “Dynamic Programming Algorithm Optimization for Spoken Word Recognition” (Sakoe and Chiba), imposing several restrictions on the algorithm to improve performance. We test our algorithm on several common words such as “Google” and “Facebook”, taking sound waves from one of our group members. The algorithm is able to distinguish distinct words and is programmed to open a webpage of the recognized word. The algorithm can distinguish words in an efficient manner due to dynamic programming along with several restrictions discussed below. 
 
 
 ## 2. Dynamic Time Warping
 
-One of the difficulties in speech recognition is comparing different sound waves. The length of the sound waves almost never match, even if the words are spoken in the same manner. We use the term “sound waves” to describe the user-spoken words taken as input into our algorithm. Speech recognition algorithms run into problems if the sound waves are not aligned properly. To combat this issue, we use a dynamic time warping function to account for differences across sound waves. A dynamic time warping function takes into account differences in sound wave lengths, and finds an “optimal” distance between the two sequences. Two types of time warping functions exist, asymmetric, where the time axis of one sound wave is transformed onto that of the other sound wave, and symmetric, where both waves are mapped to a newly defined common axis. We chose to implement a symmetric warping function due to its superior performance.  
+One of the difficulties in speech recognition is comparing different sound waves. The length of the sound waves almost never match, even if the words are spoken in the same manner. We use the term “sound waves” to describe the user-spoken words taken as input into our algorithm. Speech recognition algorithms run into problems if the sound waves are not aligned properly. To combat this issue, we use a dynamic time warping function to account for differences across sound waves. A dynamic time warping function takes into account differences in sound wave lengths, and finds an “optimal” path between the two sequences where they are most similar. Two types of time warping functions exist, asymmetric, where the time axis of one sound wave is transformed onto that of the other sound wave, and symmetric, where both waves are mapped to a newly defined common axis. We chose to implement a symmetric warping function due to its superior performance.  
 
 ## 2.1 Algorithm
 The algorithm is initalized with the parameter $r$, which squeezes the path in between the warping window. The algorithm then initializes the first point, in the bottom corner of the matrix. The algorithm computes the distances between the two time series from left to right working its way up the matrix, eventually stopping at the top right corner. From the right corner, it finds the path that takes the shortest distance from the top corner back to the bottom, giving us the path where the time series are most similar. 
@@ -64,13 +64,13 @@ $i(1)=1, j(1)=1$ and $i(K)=I , j(K)=J$
 
 This condition forces the alingment path to be close to the diagonal. This ensures that the path does not skip features and gets stuck at some features.
 
-$|i(k)-j(k) \leq | r$
+$|i(k)-j(k)| \leq  r$
 
 where $r$ is a positive integer called window length.
 
 - Slope constraint condition
 
-The step size condition takes care of potentially unrealistic correspondence between the time-series features of different length, by introducing a slope constraint on each step and between consecutive points of the warping path. For example, after moving in the same direction horizontally for *k* consecutive points the warping path is not allowed to continue in the same direction before stepping *l* points in the diagonal direction. This condition prevents the very short parts of the sequences matching to the very long parts of the sequences. Below is a picture describing the constraint.  
+The slope constraint condition takes care of potentially unrealistic correspondence between the time-series features of different length, by introducing a constraint on each step and between consecutive points of the warping path. For example, after moving in the same direction horizontally for *k* consecutive points the warping path is not allowed to continue in the same direction before stepping *l* points in the diagonal direction. This condition prevents the very short parts of the sequences matching to the very long parts of the sequences. Below is a picture describing the constraint.  
 ![Slope constraint](./Figures/sc.png) 
 
 
@@ -90,7 +90,7 @@ Derivative DTW [1] proposes replacement of the value of each data point with its
 
 Comparing various implementations of DTW, the value or the deviation of a point may not reflect the position of this point in global or local trends of the sequence. Upon further research of the issue, Feature Based DTW and Adaptive Feature Based DTW by Xie and Wiltgen [2] are introduced.
 
-Feature Based DTW algorithm works in the following way: first the algorithm defines a global and local feature for each point in a time series sequence, then dynamically aligns the two time series sequences based on both the global and local features of each points in the sequences.
+Feature Based DTW algorithm works as follows: first the algorithm defines a global and local feature for each point in a time series sequence, then dynamically aligns the two time series sequences based on both the global and local features of each points in the sequences.
 Adaptive Feature Based DTW enjoys the additional customization of Feature Based DTW where the contributions of global features and local features are leveraged by weighting factors.
 Empirically, both methods enhance the learning capacity of DTW based classification algorithms while the advanced version goes the furthest in improvement.
 
@@ -101,7 +101,7 @@ Multi-purpose classification problems that rely on the sequential type of data c
 
 ## 2.3 Applications
 
-Dynamic Time Warping is used to analyze any data which can be turned into a linear sequence: video, audio, and graphics data alongside original time series data. DTW is often used in handwriting and online signature matching, sign language and gestures recognition, data mining and time series clustering, computer vision and computer animation, surveillance, protein sequence alignment and chemical engineering, and signal processing.  
+Dynamic Time Warping is used to analyze any data which can be turned into a linear sequence: video, audio, and graphics data alongside original time series data. DTW is often used in handwriting and online signature matching, sign language and gestures recognition, data mining and time series clustering, computer vision and computer animation, surveillance, protein sequence alignment and chemical engineering, along with signal processing.  
 
 
 # 3. Speech Recognizer
