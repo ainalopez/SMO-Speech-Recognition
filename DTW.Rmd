@@ -17,7 +17,6 @@ One of the difficulties in speech recognition is comparing different sound waves
 ## 2.1 Algorithm
 
 
-
 ## Restrictions on Warping Function
 
 If we use the original DTW function we may overfit the the alingment path. IF we want this path to be smooth and stable we need to impose some conditions to the function. 
