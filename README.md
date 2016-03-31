@@ -1,5 +1,5 @@
 # Speech Recognizer
-## Stochastic Models Optimization Final Project: 
+### Stochastic Models Optimization Final Project
 
 
 
