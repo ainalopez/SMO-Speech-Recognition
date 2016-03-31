@@ -27,18 +27,18 @@ The step size condition takes care of potentially unrealistic correspondence bet
 We implementstep weighting to help favour or penalize certain types of point-to-point correspondence. Both approaches - symmetric and asymmetric weights - find successful implementation depending on the topic researched. Pictured below in the left figure we demonstrate symmetric weights, while in the right figure we demonstrate asymmetric weights.  
 ![Weighting](./Figures/w.png)
 
-Similarly to the step function constraints, the global path constraints are used as the way to improve the computational cost and optimize DTW sensitivity. It could be performed in a couple of ways, for example, through Itakura parallelogram on the left in the picture below, or Sakoe-Chiba band on the right.  
+Similarly to the step function constraints, the global path constraints are used as a way to improve the computational cost and optimize DTW sensitivity. It could be performed in a couple of ways, for example, through Itakura parallelogram (pictured below on the left), or Sakoe-Chiba band (pictured below on the right).  
 ![Global path constraint](./Figures/gc.png)
 
 ## 2.3 Modifications
 
-### Derivative DTW
-Derivative DTW [1] proposes replacement of the value of each data point with its estimated local first derivation in the process of dynamic time warping. The improvement of the classic DTW is shown in the figure below, as after creating 1) two artificial signals, and identifying 2) the intuitive feature to feature warping alignment, the alignment produced by classic DTW and the alignment produced by DDTW are sections 3) and 4) respectively.  
+### Derivative Dynamic Time Warping
+Derivative DTW [1] proposes replacement of the value of each data point with its estimated local first derivation in the process of dynamic time warping. The improvement over the classic DTW is shown in the figure below, after creating 1) two artificial signals, and identifying 2) the intuitive feature to feature warping alignment, the alignment produced by classic DTW and the alignment produced by DDTW are sections 3) and 4) respectively.  
 ![DDTW](./Figures/ddtw.png)
 
 ### Feature Based DTW and Adaptive Feature Based DTW
 
-During various implementations of DTW, it was noticed that the value or the deviation of a point may not reflect the position of this point in global or local trends of the sequence. Along the further research on the issue, Feature Based DTW and Adaptive Feature Based DTW by Xie and Wiltgen [2] are introduced.
+Comparing various implementations of DTW, the value or the deviation of a point may not reflect the position of this point in global or local trends of the sequence. Upon further research of the issue, Feature Based DTW and Adaptive Feature Based DTW by Xie and Wiltgen [2] are introduced.
 
 Feature Based DTW algorithm [2] works in the following way: first defines a global feature and a local feature for each point in a time series sequence, then dynamically aligns two time series sequences based on both the global features and local features of each points in the sequences.
 Adaptive Feature Based DTW enjoys the additional customization of Feature Based DTW where the contributions of global features and local features are leveraged by weighting factors.
