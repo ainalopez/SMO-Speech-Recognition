@@ -136,13 +136,8 @@ If we observe the sound waves of our examples, we can see their differences belo
 
 &nbsp;
 
-<<<<<<< HEAD
-An extended approach is to transform the sound waves into the frequency domain and delete the unnecessary frequencies and extract some coefficients ([3], [4]). In this project, we tried with two different coefficients: Mel Frequency Cepstral Coefficients (MFCC) and Linear Prediction Coefficient (LPC). Unfortunately, we didn't obtained good results with LPC and we decided to use MFCC.  
-=======
 An extended approach is to transform the sound waves into the frequency domain and then, delte the unnecessary frequencies and extract some coefficients ([4], [5]). In this project, we tried with two different coefficients: Mel Frequency Cepstral Coefficients (MFCC) and Linear Prediction Coefficient (LPC). Unfortunately, we didn't obtained good results with LPC and we decided to use only MFCC.  
->>>>>>> origin/master
-\
-\
+
 
 **1. Pre-emphasizing**: In order to digitalize audio, we must send it through a low-pass filter and reduce the high frequencies. In this step, a pre-emphasizing filter is applied to emphazise the higest frequenciy components of the speech, in an effort to increase the energy in the higher frequencies.
 
