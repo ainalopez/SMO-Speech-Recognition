@@ -170,8 +170,6 @@ where N is the length of the window, in this case the length of the frame.
 
 From this process we obtain K coefficients, in our case K = 11.  
 \
-\
-
 At the end, we end up having M frames and each frame contains a vector of 11 coefficients.  
 
 
@@ -183,16 +181,69 @@ In order to predict the category of a new sound, we use our function to compare 
 
 ## 3.3 Results
 
-We created two new samples, one for each category. After using our R function to compare the new samples with the previous ones we correctly predicted both categories. This shows that dynamic time warping has a good performance when dealing with speech recognition. Moreover, this process could be applied in an application where the user can open a program just by saying its name.
+In order to test the accuracy of our speech recognizer, we recorded and evaluated the recognizer using our voices.
+
+* Our four template sounds were created by the same male voice: facebook1.wav, facebook2.wav, google1.wav, google2.wav.  
+
+* We created two new samples for each word using the same male voice. Those files are facebook3.wav, facebook4.wav, google3.wav, google4.wav. 
+
+* Finally, we recorded two new samples for the word *facebook* using a different male (facebookY.wav) and a female (facebookA.wav) voices. 
+
+After using our R function to compare the new samples with the previous ones we correctly predicted both categories. The detailed results that we obtained are summarized in the following tables. Each column represents one template sound and each row is the name of the file used to test. The result showed is the estimated distance between each pair of sounds.  
+\
+\
+
+**Same voice in the test than in the templates**
 
 
+ Test File   | Google1.wav | Google2.wav | Facebook1.wav | Facebook2.wav  
+-------------|-------------|-------------|---------------|---------------
+Google3.wav  | 1912.219    | 1915.605    | 2777.309      | 3276.481
+Google4.wav  | 2557.622    | 2013.829    | 2611.561      | 3634.220
+Facebook3.wav     | 3258.776    | 3640.018    | 2231.563      | 1248.368
+Facebook4.wav     | 3500.642    | 3697.621    | 1678.746      | 1214.219
+
+
+**Different Voices (male Y and female A)**
+
+Test File  | Google1.wav | Google2.wav | Facebook1.wav | Facebook2.wav  
+-------------------|-------------|-------------|---------------|---------------
+FacebookA.wav      | 2913.051    | 2915.692    | 2004.277      | 2059.823
+FacebookY.wav      | 4070.689    | 3705.251    | 1976.636      | 2247.728
+
+
+
+
+
+
+
+The minimum distances correspond to the the same word all the times. This shows that dynamic time warping has a good performance when dealing with speech recognition. Unfortunately, we don't have enough data to claim that it will always work.  
+\
+In the figure below we can observe some warping paths. 
+
+![](Figures\WarpingPath.png)
+*Figure 3. Warping Paths of one of our examples. Red lines represent the warping path between two different words and green lines represent the warping path between same words.*
+
+Additionally, the DTW algorithm is very fast with our data. Approximately it takes 0.09 seconds.  
+\
+This process could be applied in an application where the user can open a program just by saying its name.
 
 &nbsp;
 &nbsp;
-
 
 # 4. Conclusions
-Blablabla
+
+More Robust -> more template Data
+
+It works for both male female
+
+Not enough data to make universal claims 
+
+DTW fast and good
+
+Improve it, maybe better speech processing techniques -> to deal with sentences 
+
+Saddly we haven't found a way to input real voice, but would be interesting as a application. 
 
 
 &nbsp;
@@ -205,11 +256,9 @@ Blablabla
 
 [2] Xie, Y. & Wiltgen, B. [Adaptive Feature Based Dynamic Time Warping](http://paper.ijcsns.org/07_book/201001/20100135.pdf)
 
-[3] Bahlmann C. & Burkhardt, H.[The Writer Independent Online Handwriting Recognition System frog on hand and Cluster Generative Statistical Dynamic Time Warping](http://lmb.informatik.uni-freiburg.de/people/bahlmann/data/ba_bu_tpami04.pdf)
+[3] Anand, D. A., & Meher, P. K. [Combined LPC and MFCC Features based technique for Isolated Speech Recognition.](http://www-personal.umich.edu/~aniketde/ISCAS2013_paper.pdf) 
 
-[4] Anand, D. A., & Meher, P. K. [Combined LPC and MFCC Features based technique for Isolated Speech Recognition.](http://www-personal.umich.edu/~aniketde/ISCAS2013_paper.pdf) 
-
-[5] Shinde, M. R., & Pawar, V. P. [Dynamic time Warping using MATLAB & PRAAT.](http://www.ijser.org/researchpaper%5CDynamic-time-Warping-using-MATLAB-PRAAT.pdf) 
+[4] Shinde, M. R., & Pawar, V. P. [Dynamic time Warping using MATLAB & PRAAT.](http://www.ijser.org/researchpaper%5CDynamic-time-Warping-using-MATLAB-PRAAT.pdf) 
 
 
 
@@ -321,8 +370,6 @@ TimeWarp<-function(x,y,w=4){
 
 return(list(path=path, DTW=DTW))
 }
-
-
 ```
 
 
@@ -334,6 +381,7 @@ return(list(path=path, DTW=DTW))
 SpeechRecognizer <- function(isound){
 
   if (!require("tuneR")) install.packages("tuneR");library(tuneR)
+  
   
   # Read the wav file
   sound <- readWave(isound)
@@ -349,10 +397,10 @@ SpeechRecognizer <- function(isound){
                         sumpower=FALSE))
   
   # Upload the four template sounds and compute their melfcc
-  g1 <- readWave("Project\googlel1.wav")
-  g2 <- readWave("Project\google2.wav")
-  f1 <- readWave("Project\facebook1.wav")
-  f2 <- readWave("Project\facebook2.wav")
+  g1 <- readWave("Project/google1.wav")
+  g2 <- readWave("Project/google2.wav")
+  f1 <- readWave("Project/facebook1.wav")
+  f2 <- readWave("Project/facebook2.wav")
   
   sr1 <- g1@samp.rate
   sr2 <- g2@samp.rate
@@ -365,24 +413,24 @@ SpeechRecognizer <- function(isound){
                       minfreq=133.33, maxfreq=6855.6, sumpower=FALSE))
   facebook1 <- t(melfcc(f1, sr3, wintime=0.016, lifterexp=0, 
                         minfreq=133.33, maxfreq=6855.6, sumpower=FALSE))
-  facebook2 <- t(melfcc(b2, sr4, wintime=0.016, lifterexp=0, 
+  facebook2 <- t(melfcc(f2, sr4, wintime=0.016, lifterexp=0, 
                         minfreq=133.33, maxfreq=6855.6, sumpower=FALSE))
   
   
   # Compute the distance of the input sound with the template sounds
   distance.sound<-rep(NA, 4)
-  
+
   dtwg1 <- TimeWarp(google1, inputWord)
-  distance.sound[1]<- tail(dtwg1$DTW[,1],1)
+  distance.sound[1]<- tail(dtwg1$DTW[1,],1)
 
   dtwg2 <- TimeWarp(google2, inputWord)
-  distance.sound[2]<- tail(dtwg2$DTW[,1],1)
+  distance.sound[2]<- tail(dtwg2$DTW[1,],1)
    
   dtwf1 <- TimeWarp(facebook1, inputWord)
-  distance.sound[3]<- tail(dtwf1$DTW[,1],1)
+  distance.sound[3]<- tail(dtwf1$DTW[1,],1)
   
   dtwf2 <- TimeWarp(facebook2, inputWord)
-  distance.sound[4]<- tail(dtwf2$DTW[,1],1)
+  distance.sound[4]<- tail(dtwf2$DTW[1,],1)
   
   
   # If the minimum distance is to the word gmail, open gmail
