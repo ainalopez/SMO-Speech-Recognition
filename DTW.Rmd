@@ -209,14 +209,14 @@ FacebookY.wav      | 4070.689    | 3705.251    | 1976.636      | 2247.728
 
 
 
-The minimum distances correspond to the the same word all the times. This shows that dynamic time warping performs well when dealing with speech recognition. Unfortunately, we don't have enough data to claim that it will always work.  
+The minimum distances correspond to the the same word in all cases. This shows that dynamic time warping performs well when dealing with speech recognition. Unfortunately, we don't have enough data to claim that it will always work.  
 \
 In the figure below we can observe some warping paths. 
 
 ![](Figures\WarpingPath.png)
 *Figure 3. Warping Paths of one of our examples. Red lines represent the warping path between two different words and green lines represent the warping path between same words.*
 
-Additionally, the DTW algorithm is very fast with our data, taking approximately 0.09 seconds on the data we gave it.  
+Additionally, the DTW algorithm is very fast on our examples, taking approximately 0.09 seconds on the data we gave it.  
 \
 This process could be applied in an application where the user can open a program just by saying its name.
 
