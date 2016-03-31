@@ -118,10 +118,17 @@ At the end, we end up having M frames and each frame contains a vector of 11 coe
 
 
 ## 3.2 Dynamic Time Warping in this project  
-Blablabla
+
+If we want to compare sounds we may find that the frequencies have different length. Also, two identical words can have a different frequency because of differences in pronunciation. Dynamic time warping is used in speech recognition because it matches the shapes of the two sounds. Using dynamic time warping, sounds of different length is no longer a problem, and the differences in pronunciation are removed from the data.  
+ 
+In order to predict whether a new sound is the word "google" or "facebook" we use dynamic time warping to compare it to all our samples. This gives us the length of the shortest path between our new sound and all our samples. At this point, if the shortest path is with a sample corresponding to "google", we classify the new sound as "google". Similarly, if the closest path is with a sample corresponding to "facebook", we classify it as "facebook". If we had many samples, we could take *k* closest samples and take a majority vote to predict the category of the new sound. 
+
+We created a function in R that takes as an input two matrices and a parameter w, which corresponds to the adjusting window condition. These two matrices are the result of the speech transformation explained above. We used this function to predict the category of a new sound. 
 
 ## 3.3 Results
-Blablabla
+
+We created two new samples, one for each category. After using our R function to compare the new samples with the previous ones we correctly predicted both categories. This shows that dynamic time warping has a good performance when dealing with speech recognition. Moreover, This process could be applied in an application where the user can open a program just by saying its name.
+
 
 
 &nbsp;
