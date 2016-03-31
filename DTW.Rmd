@@ -96,27 +96,19 @@ Derivative DTW [1] proposes replacement of the value of each data point with its
 
 Comparing various implementations of DTW, the value or the deviation of a point may not reflect the position of this point in global or local trends of the sequence. Upon further research of the issue, Feature Based DTW and Adaptive Feature Based DTW by Xie and Wiltgen [2] are introduced.
 
-<<<<<<< HEAD
-Feature Based DTW algorithm [2] works in the following way: the algorithm defines a global feature and a local feature for each point in a time series sequence. The two time series sequences are dynamically alligned based on both the global features and local features of each points in the sequences.
+Feature Based DTW algorithm works in the following way: the algorithm defines a global feature and a local feature for each point in a time series sequence. The two time series sequences are dynamically alligned based on both the global features and local features of each points in the sequences.
 Adaptive Feature Based DTW benefits from the additional customization of Feature Based DTW where the contributions of global features and local features are leveraged by weighting factors.
-=======
-Feature Based DTW algorithm works in the following way: first defines a global feature and a local feature for each point in a time series sequence, then dynamically aligns two time series sequences based on both the global features and local features of each points in the sequences.
-Adaptive Feature Based DTW enjoys the additional customization of Feature Based DTW where the contributions of global features and local features are leveraged by weighting factors.
->>>>>>> origin/master
+
 Empirically, both methods enhance the learning capacity of DTW based classification algorithms while the advanced version goes the furthest in improvement.
 
 ### Cluster Generative Statistical DTW 
 
-Multi-purpose classification problems that rely on the sequential type of data can have at its core a modified DTW algorithm. Here, Cluster Generative Statistical DTW [3] is described as a general, scalable, (hidden Markov modeling)-based method for variable-sized, sequential data that holistically combines cluster analysis and statistical sequence modeling. One of its strength lies in initialization of the statistical warping framework. through defined DTW (Viterbi) distance. 
+Multi-purpose classification problems that rely on the sequential type of data can have at its core a modified DTW algorithm. Here, Cluster Generative Statistical DTW [3] is described as a general, scalable, (hidden Markov modeling)-based method for variable-sized, sequential data that holistically combines cluster analysis and statistical sequence modeling. One of its strength lies in initialization of the statistical warping framework through defined DTW (Viterbi) distance. 
 
 ## 2.4 Applications
 
-<<<<<<< HEAD
-Dynamic Time Warping is used to analyze any data which can be turned into a linear sequence: video, audio, and graphical data and of course original time series data.  
-=======
-Dynamic Time Warping is used to analyze any data which can be turned into a linear sequence: video, audio, and graphics data alongside original time series data. There are illustrations of the following conversions persented below: A) video, B) image, c) handwriting, and D) text mining. 
+Dynamic Time Warping is used to analyze any data which can be turned into a linear sequence: video, audio, and graphics data alongside original time series data. There are illustrations of the following conversions persented below: A) video, B) image, c) handwriting, and D) text mining as time series data. 
 ![Applications](./Figures/app.jpg)
->>>>>>> origin/master
 
 The areas to apply DTW are extensive, include handwriting and online signature matching, sign language and gestures recognition, data mining and time series clustering, computer vision and computer animation, surveillance, protein sequence alignment and chemical engineering, and signal processing.  
 
