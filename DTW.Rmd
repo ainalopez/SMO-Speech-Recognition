@@ -7,8 +7,13 @@ output: pdf_document
 
 ## 1. Introduction
 
-The purpose of our project is to use dynamic programming for speech recognition. Our algorithm uses a dynamic time warping function to establish similarities between two sound waves. We took inspirations from the symmetric algorithm established in “Dynamic Programming Algorithm Optimization for Spoken Word Recognition” (Sakoe and Chiba), imposing several restrictions on the algorithm to improve performance. We test our algorithm on several common words such as “Google” and “Facebook”, taking sound waves from one of our group members. The algorithm is able to distinguish distinct words and is programmed to open a webpage of the recognized word. The algorithm can distinguish words in an efficient manner due to dynamic programming along with several restrictions discussed below. 
+The purpose of our project is to use dynamic programming for speech recognition. Our algorithm uses a dynamic time warping function to establish similarities between two sound waves. We took inspirations from the symmetric algorithm established in “Dynamic Programming Algorithm Optimization for Spoken Word Recognition” (Sakoe and Chiba), imposing several restrictions on the algorithm to improve performance. We test our algorithm on several common words such as “Google” and “Facebook”, taking sound waves from one of our group members. The algorithm is able to distinguish distinct words and is programmed to open a webpage of the recognized word. The algorithm can distinguish words in an efficient manner due to dynamic programming along with several restrictions discussed below.  
+\
+The code and sounds of this project can be found in our [Github Repository](https://github.com/ainalopez/SMO-Speech-Recognition)
 
+
+&nbsp;
+&nbsp;
 
 ## 2. Dynamic Time Warping
 
@@ -77,7 +82,8 @@ The slope constraint condition takes care of potentially unrealistic corresponde
 ### Weighting
 
 We implement step weighting to help favour or penalize certain types of point-to-point correspondence. Both approaches, symmetric and asymmetric weighting, find successful implementation depending on the topic researched. Pictured below in the left figure we demonstrate symmetric weights, while in the right figure we demonstrate asymmetric weights.  
-![Weighting](./Figures/w.png)
+![Weighting](./Figures/w.png)  
+\
 
 
 ## 2.2 Modifications
@@ -96,20 +102,27 @@ Empirically, both methods enhance the learning capacity of DTW based classificat
 
 ### Cluster Generative Statistical DTW 
 
-Multi-purpose classification problems that rely on the sequential type of data can have at its core a modified DTW algorithm. Here, Cluster Generative Statistical DTW [3] is described as a general, scalable, (hidden Markov modeling) based method for variable-sized, sequential data that holistically combines cluster analysis and statistical sequence modeling. One of its strength lies in initialization of the statistical warping framework. through defined DTW (Viterbi) distance. 
+Multi-purpose classification problems that rely on the sequential type of data can have at its core a modified DTW algorithm. Here, Cluster Generative Statistical DTW [3] is described as a general, scalable, (hidden Markov modeling) based method for variable-sized, sequential data that holistically combines cluster analysis and statistical sequence modeling. One of its strength lies in initialization of the statistical warping framework. through defined DTW (Viterbi) distance.  
 
 
 ## 2.3 Applications
 
 Dynamic Time Warping is used to analyze any data which can be turned into a linear sequence: video, audio, and graphics data alongside original time series data. DTW is often used in handwriting and online signature matching, sign language and gestures recognition, data mining and time series clustering, computer vision and computer animation, surveillance, protein sequence alignment and chemical engineering, along with signal processing.  
 
+&nbsp;
+&nbsp;
 
 # 3. Speech Recognizer
 
-We implemented a speech recognizer applying a modified version of the DTW algorithm. Using DTW and speech processing techniques (i.e. Mel Frequency Cepstral Coefficients), our algorithm is able to detect which action we want to perform: open the google search or open our facebook webpage. 
+We implemented a speech recognizer applying a modified version of the DTW algorithm. Using DTW and speech processing techniques (i.e. Mel Frequency Cepstral Coefficients), our algorithm is able to detect which action we want to perform: open the google search or open our facebook webpage.  
 
 This speech recognizer takes as input a sound file and compares it with some template words: *google* and *facebook*. In order to make our recognizer more robust, we have used two template words for each sound. After comparing the input sound with each template word, the algorithm chooses the one with the shortest path, in other words, it chooses the word that is most similar.  
 
+
+![](Figures\General.png)
+*Figure 1. Scheme of our speech recognizer .*
+
+&nbsp;
 
 ## 3.1 Speech Processing
 
@@ -119,10 +132,10 @@ Looking at the sound waves of our examples, we can see their differences below.
 
 
 ![](Figures\GoogleWaves.png)
-*Figure 1. Sound Waves of the word Google.*
+*Figure 2. Sound Waves of the word Google.*
 
 ![](Figures\FacebookWaves.png)
-*Figure 2. Sound Waves of the word Facebook.*   
+*Figure 3. Sound Waves of the word Facebook.*   
 
 &nbsp;
 
@@ -164,12 +177,17 @@ From this process we obtain K coefficients, in our case K = 11.
 \
 At the end, we end up having M frames and each frame contains a vector of 11 coefficients.  
 
+&nbsp;
+&nbsp;
 
 ## 3.2 Dynamic Time Warping in this project  
 
 We created a function in R that takes as an input two matrices and a parameter *w*. These two matrices are the result of the speech transformation explained above. The parameter *w* corresponds to the adjusting window condition, and we gave it a default value of 4. We used this function to predict whether a new sound wave corresponds to the word "google" or "facebook". 
 
-In order to predict the category of a new sound, we use our function to compare it to all our existing sound waves. This gives us the value of the shortest path between our new sound and the rest of samples. At this point, if the shortest of these values corresponds to "google", we classify the new sound as "google". Similarly, if that path corresponds to "facebook", we classify it as "facebook". If we had many samples, we could take *k* closest samples and take a majority vote to predict the category of the new sound. 
+In order to predict the category of a new sound, we use our function to compare it to all our existing sound waves. This gives us the value of the shortest path between our new sound and the rest of samples. At this point, if the shortest of these values corresponds to "google", we classify the new sound as "google". Similarly, if that path corresponds to "facebook", we classify it as "facebook". If we had many samples, we could take *k* closest samples and take a majority vote to predict the category of the new sound.  
+
+&nbsp;
+&nbsp;
 
 ## 3.3 Results
 
@@ -195,6 +213,7 @@ Google4.wav  | 2557.622    | 2013.829    | 2611.561      | 3634.220
 Facebook3.wav     | 3258.776    | 3640.018    | 2231.563      | 1248.368
 Facebook4.wav     | 3500.642    | 3697.621    | 1678.746      | 1214.219
 
+\pagebreak 
 
 **Different Voices (male Y and female A)**
 
@@ -204,20 +223,17 @@ FacebookA.wav      | 2913.051    | 2915.692    | 2004.277      | 2059.823
 FacebookY.wav      | 4070.689    | 3705.251    | 1976.636      | 2247.728
 
 
-
-
-
-
-
 The minimum distances correspond to the the same word in all cases. This shows that dynamic time warping performs well when dealing with speech recognition. Unfortunately, we don't have enough data to claim that it will always work.  
 \
 In the figure below we can observe some warping paths. 
 
 ![](Figures\WarpingPath.png)
-*Figure 3. Warping Paths of one of our examples. Red lines represent the warping path between two different words and green lines represent the warping path between same words.*
+*Figure 4. Warping Paths of one of our examples. Red lines represent the warping path between two different words and green lines represent the warping path between same words.*  
+
+&nbsp;
 
 Additionally, the DTW algorithm is very fast on our examples, taking approximately 0.09 seconds on the data we gave it.  
-\
+
 This process could be applied in an application where the user can open a program just by saying its name.
 
 &nbsp;
